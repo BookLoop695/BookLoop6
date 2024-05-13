@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Book Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('sell.jpg');
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+
+
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: black;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8%;
+            box-shadow: #1dd10d;
+            box-sizing: border-box;
+            height: 50%;
+
+
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            color: #000000;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+            /* Updated background color */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            /* Smooth hover transition */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Updated select dropdown style */
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            color: black;
+            background-color: #f9f9f9;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="#25de0c" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>');
+            /* Custom dropdown arrow */
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        /* Updated file input style */
+        .input[type="file"] {
+            display: none;
+            /* Hide the default file input */
+        }
+
+        /* Updated submit button style */
+        .submitbtn {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin-top: 10%;
+            margin-bottom: 20%;
+            /* Center the button */
+        }
+
+        button {
+            font-family: 'Ubuntu', sans-serif;
+            width: 170px;
+            height: 40px;
+            line-height: 1;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 3px solid #52e713;
+            background: #fff;
+            color: #b1fc82;
+            border-radius: 40px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all .35s;
+        }
+
+        button:hover {
+            background: #1dd10d;
+            color: #fff;
+        }
+
+        button span {
+            opacity: 1;
+            visibility: visible;
+            transition: all .35s;
+        }
+
+        .success {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .35s;
+        }
+
+        .success svg {
+            width: 20px;
+            height: 20px;
+            fill: rgb(162, 235, 18);
+            transform-origin: 50% 50%;
+            transform: translateY(-50%) rotate(0deg) scale(0);
+            transition: all .35s;
+        }
+
+        button.is_active {
+            width: 40px;
+            height: 40px;
+        }
+
+        button.is_active .success {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        button.is_active .success svg {
+            margin-top: 50%;
+            transform: translateY(-50%) rotate(720deg) scale(1);
+        }
+
+        button.is_active span {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 60px;
+
+
+        }
+
+        #logo img {
+            width: 130px;
+            height: 61px;
+
+
+        }
+
+        #navbar ul {
+            list-style: none;
+            display: flex;
+            margin-left: 45px;
+            margin-right: 10px;
+        }
+
+        #navbar ul li {
+            font-size: small;
+            margin-left: 0px;
+            margin-right: 80px;
+        }
+
+        #navbar ul li a {
+            padding: 10px 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        #navbar ul li a:hover {
+            color: rgb(27, 193, 99);
+        }
+
+
+
+        .right-items {
+            display: flex;
+            align-items: center;
+            margin-left: 45px;
+            margin-right: 10px;
+        }
+
+        .right-items ul {
+            list-style: none;
+            display: flex;
+            margin-right: 0px;
+        }
+
+        .right-items ul li {
+            margin-left: 20px;
+            right: 10px;
+        }
+
+        .right-items ul li a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 0px;
+        }
+
+        .submitbtn {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        button {
+            font-family: 'Ubuntu', sans-serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 170px;
+            height: 40px;
+            line-height: 1;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 3px solid #52e713;
+            background: #fff;
+            color: #b1fc82;
+            border-radius: 40px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all .35s;
+        }
+
+        button:hover {
+            background: #1dd10d;
+            color: #fff;
+        }
+
+        button span {
+            opacity: 1;
+            visibility: visible;
+            transition: all .35s;
+        }
+
+        .success {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .35s;
+        }
+
+        .success svg {
+            width: 20px;
+            height: 20px;
+            fill: rgb(162, 235, 18);
+            transform-origin: 50% 50%;
+            transform: translateY(-50%) rotate(0deg) scale(0);
+            transition: all .35s;
+        }
+
+        button.is_active {
+            width: 40px;
+            height: 40px;
+        }
+
+        button.is_active .success {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        button.is_active .success svg {
+            margin-top: 50%;
+            transform: translateY(-50%) rotate(720deg) scale(1);
+        }
+
+        button.is_active span {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="BookLoop.png" alt="BookLoop.com">
+        </div>
+
+        <ul>
+            <li class="item"><a href="#"><i class="fa-solid fa-house"></i>HOME</a></li>
+            <li class="item"><a href="#"><i class="fa-solid fa-user"></i>ABOUTUS</a></li>
+            <li class="item"><a href="#"><i class="fa-solid fa-shop"></i>BUY</a></li>
+            <li class="item"><a href="#"><i class="fa-solid fa-bell"></i>NOTIFICATIONS</a></li>
+        </ul>
+
+        <div class="right-items">
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-circle-user"></i>LOGIN</a></li>
+                <li><a href="#"><i class="fa-solid fa-user-plus"></i>SIGNUP</a></li>
+                <li><a href="#"><i class="fa-solid fa-circle-plus"></i> SELL</a></li>
+                <li><a href="#"><i class="fas fa-cart-plus"></i>CART</a></li>
+            </ul>
+
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <form id="sellform" action="#">
+            <div class="form-group">
+                <label for="title">Title*:</label>
+                <input type="text" id="title" placeholder="Title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author*:</label>
+                <input type="text" id="author" placeholder="Author" name="author" required>
+            </div>
+            <div class="form-group">
+                <label for="Category">Category*:</label>
+                <select id="Category" name="Category" required>
+                    <option value="">Select Category of book</option>
+                    <option value="Medical">Medical</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Magazine">Magazine</option>
+                    <option value="Management book">Management book</option>
+                    <option value="Stories">Stories</option>
+                    <option value="School books">School books</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="published">Published Year*:</label>
+                <input type="date" id="published" name="published" required>
+            </div>
+            <div class="form-group">
+                <label for="Method">Method*:</label>
+                <select id="Method" name="Method" required>
+                    <option value="">Select method</option>
+                    <option value="BUY">Buy</option>
+                    <option value="Exchange">Exchange</option>
+                    <option value="Lost and found">Lost and found</option>
+                    <option value="SELL">Sell</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Pricetype">Price type*:</label>
+                <select id="Pricetype" name="Pricetype" required>
+                    <option value="">Price type</option>
+                    <option value="Fixed">Fixed</option>
+                    <option value="Negotiable">Negotiable</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Price">Price*:</label>
+                <input type="number" id="Price" placeholder="Price" name="Price" required>
+            </div>
+            <div class="form-group">
+                <label for="Condition">Book Condition*:</label>
+                <select id="Condition" name="Condition" required>
+                    <option value="">Book Condition</option>
+                    <option value="new">New</option>
+                    <option value="Used">Used</option>
+                </select>
+            </div>
+            <div class="text area">
+                <label for="text">Write about book description*:</label>
+                <textarea id="textarea" name="text" rows="10" cols="80" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="mobilenumber">Mobile number*:</label>
+                <input type="tel" id="mobilenumber" placeholder="Mobilenumber" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Upload Image*:</label>
+                <input type="file" id="photo"  onclick="uploadimage()">
+            </div>
+            <div class="submitbtn">
+                <button class="#">
+                    <span>Submit</span>
+                    <div class="success">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 29.756 29.756"
+                            style="enable-background:new 0 0 29.756 29.756;" xml:space="preserve">
+
+                            <path
+                                d="M29.049,5.009L28.19,4.151c-0.943-0.945-2.488-0.945-3.434,0L10.172,18.737l-5.175-5.173   c-0.943-0.944-2.489-0.944-3.432,0.001l-0.858,0.857c-0.943,0.944-0.943,2.489,0,3.433l7.744,7.752   c0.944,0.943,2.489,0.943,3.433,0L29.049,8.442C29.991,7.498,29.991,5.953,29.049,5.009z" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebasestorage.js"></script>
+    <script src="sell.js"></script>
+    
+
+</body>
+
+</html>
